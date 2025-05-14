@@ -1,119 +1,108 @@
-/* Reinicio básico de márgenes y tamaños */
 * {
-  margin: 0; /* Elimina el margen por defecto */
-  padding: 0; /* Elimina el padding por defecto */
-  box-sizing: border-box; /* Incluye el padding y border dentro del tamaño total */
+  margin: 0; /* Elimina el margen por defecto de todos los elementos */
+  padding: 0; /* Elimina el padding por defecto de todos los elementos */
+  box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total del elemento */
 }
 
-/* Estilos generales del body */
 body {
-  font-family: Arial, sans-serif; /* Tipo de letra */
-  background-color: #f9f9f9; /* Color de fondo general */
+  font-family: Arial, sans-serif; /* Tipo de letra para todo el sitio */
+  background-color: #f9f9f9; /* Color de fondo de la página */
   color: #333; /* Color del texto */
 }
 
-/* Contenedor principal blanco centrado */
 .contenedor {
-  width: 80%; /* Ancho del contenido */
-  max-width: 1000px; /* Ancho máximo del contenedor */
-  margin: 0 auto; /* Centrado horizontal */
-  overflow: hidden; /* Oculta contenido que se salga del contenedor */
+  width: 80%; /* Ancho del contenido principal */
+  max-width: 1000px; /* Máximo ancho permitido */
+  margin: 0 auto; /* Centra horizontalmente */
+  overflow: hidden; /* Oculta el desbordamiento del contenido */
 }
 
-/* Contenedor flexible para la estructura general */
 .container {
-  display: flex; /* Usa flexbox para dividir el menú y el contenido */
-  min-height: 100vh; /* Altura mínima: 100% del alto de la pantalla */
+  display: flex; /* Usamos flexbox para alinear el contenido */
+  min-height: 100vh; /* Altura mínima de toda la pantalla */
 }
 
-/* Menú lateral izquierdo */
+/* MENÚ LATERAL IZQUIERDO */
 .sidebar {
-  width: 220px; /* Ancho del menú */
-  background-color: #1e1e2f; /* Color de fondo del menú */
+  width: 220px; /* Ancho fijo del menú */
+  background-color: #1e1e2f; /* Fondo oscuro para el menú */
   padding: 20px; /* Espacio interno */
-  color: white; /* Color del texto */
-  transition: transform 0.3s ease; /* Animación al mostrar/ocultar */
+  color: white; /* Color del texto del menú */
+  flex-shrink: 0; /* No permitir que se reduzca con el tamaño de la pantalla */
 }
 
-/* Título dentro del menú */
 .sidebar h2 {
   margin-bottom: 20px; /* Espacio debajo del título */
-  font-size: 20px; /* Tamaño de letra */
-  text-align: center; /* Centrado */
+  font-size: 20px; /* Tamaño del texto */
+  text-align: center; /* Centrar el texto */
 }
 
-/* Lista sin viñetas */
 .sidebar ul {
-  list-style: none; /* Sin puntos en la lista */
+  list-style: none; /* Quitar los puntos de la lista */
+  padding: 0; /* Eliminar padding de la lista */
 }
 
-/* Espacio entre cada opción del menú */
 .sidebar li {
-  margin-bottom: 15px; /* Espacio entre cada ítem */
+  margin-bottom: 15px; /* Espacio entre enlaces del menú */
 }
 
-/* Estilo de los enlaces */
 .sidebar a {
-  text-decoration: none; /* Sin subrayado */
-  color: white; /* Color del texto */
-  transition: 0.3s; /* Transición suave */
+  text-decoration: none; /* Quitar subrayado */
+  color: white; /* Color blanco para los enlaces */
+  transition: 0.3s; /* Transición suave al pasar el mouse */
 }
 
-/* Cambio de color al pasar el mouse */
 .sidebar a:hover {
-  color: #f0a500; /* Color al hacer hover */
+  color: #f0a500; /* Cambia el color al pasar el mouse */
 }
 
-/* Contenido principal */
+/* CONTENIDO PRINCIPAL */
 .content {
-  flex-grow: 1; /* Ocupar el espacio restante */
+  flex-grow: 1; /* El contenido ocupa todo el espacio restante */
   padding: 30px; /* Espacio interno */
   background-color: white; /* Fondo blanco */
   text-align: justify; /* Justifica el texto */
 }
 
-/* Logo */
+/* LOGO DEL MENÚ */
 .logo {
   width: 100px; /* Ancho del logo */
-  display: block; /* Para usar margin */
+  display: block;
   margin-bottom: 20px; /* Espacio debajo del logo */
 }
 
-/* Estilo para imágenes lado a lado */
+/* SECCIÓN DE IMÁGENES */
 .imagenes {
-  display: flex; /* Flex para que se acomoden lado a lado */
+  display: flex; /* Mostrar imágenes en fila */
   gap: 20px; /* Espacio entre imágenes */
-  margin: 20px 0; /* Margen arriba y abajo */
+  margin: 20px 0; /* Margen superior e inferior */
 }
 
-/* Imágenes con esquinas redondeadas */
 .imagenes img {
-  width: 48%; /* Casi la mitad del ancho */
+  width: 48%; /* Cada imagen ocupa casi la mitad */
   height: auto; /* Altura automática */
   border-radius: 8px; /* Bordes redondeados */
 }
 
-/* Títulos principales */
+/* TÍTULOS */
 h1 {
-  font-size: 32px; /* Tamaño de letra */
-  margin-bottom: 10px; /* Espacio debajo */
+  font-size: 32px; /* Tamaño grande para el título principal */
+  margin-bottom: 10px;
 }
 
-/* Subtítulos */
 h2 {
   font-size: 20px;
   margin-bottom: 20px;
-  color: #555;
+  color: #555; /* Gris medio */
 }
 
-/* Título de secciones */
 h3 {
   margin-top: 30px;
   margin-bottom: 10px;
   color: #444;
 }
 
-/* Pie de página */
+/* PIE DE PÁGINA */
 footer {
   margin-top: 40px;
   font-size: 14px;
@@ -121,168 +110,48 @@ footer {
   text-align: center;
 }
 
-/* BOTÓN PARA MÓVILES (escondido por defecto) */
-.menu-toggle {
-  display: none; /* Oculto por defecto (en PC) */
-  background-color: #1e1e2f; /* Color de fondo igual al menú */
-  color: white; /* Color del texto */
-  border: none; /* Sin bordes */
-  padding: 10px 20px; /* Relleno interno */
-  font-size: 18px; /* Tamaño de letra */
-  cursor: pointer; /* Cursor en forma de mano */
-  width: 100%; /* Ocupa todo el ancho */
-  text-align: left; /* Alineado a la izquierda */
-}
-
-/* TABLAS */
-.tabla-11s {
-  width: 100%;
-  border-collapse: collapse; /* Une bordes de la tabla */
-  margin-top: 20px;
-  font-family: Arial, sans-serif;
-}
-
-.tabla-11s th,
-.tabla-11s td {
-  border: 1px solid #ccc;
-  padding: 12px;
-  text-align: left;
-}
-
-.tabla-11s thead {
-  background-color: #6ab7eb;
-  color: white;
-}
-
-.tabla-11s tbody tr:nth-child(even) {
-  background-color: #f0f2f5;
-}
-
-.tabla-11s tbody tr:hover {
-  background-color: #e0e0d1;
-}
-
-/* FORMULARIOS */
-.formulario-11s {
-  background-color: #f0f2f5;
-  padding: 20px;
-  max-width: 500px;
-  margin: 20px auto;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.formulario-11s label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: bold;
-}
-
-.formulario-11s input,
-.formulario-11s textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-family: Arial, sans-serif;
-}
-
-.formulario-11s button {
-  background-color: #6f700f;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.formulario-11s button:hover {
-  background-color: #5c5e0c;
-}
-
-/* CHAT */
-.chat {
-  max-width: 600px;
-  margin: 20px auto;
-  font-family: Arial, sans-serif;
-}
-
-.usuario,
-.respuesta {
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 8px;
-}
-
-.usuario {
-  background-color: #e0e0d1;
-  text-align: left;
-}
-
-.respuesta {
-  background-color: #f0f2f5;
-  border-left: 4px solid #6f700f;
-}
-
-/* ------------------- RESPONSIVE ------------------- */
-
-/* PARA TABLETS (pantallas menores a 991px) */
+/* RESPONSIVE PARA TABLETAS */
 @media (max-width: 991px) {
   .container {
-    flex-direction: column; /* Apila el menú encima del contenido */
+    flex-direction: column; /* El menú y el contenido se colocan uno encima del otro */
   }
 
   .sidebar {
-    width: 100%; /* El menú ocupa todo el ancho */
-    text-align: center; /* Centra el texto */
+    width: 100%; /* El menú ocupa el ancho completo */
+    text-align: center; /* Centrar el contenido del menú */
   }
 
   .sidebar ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Centra las opciones */
-    padding: 0;
+    display: flex; /* Mostrar los enlaces del menú en fila */
+    flex-wrap: wrap; /* Permite que pasen a otra línea si no caben */
+    justify-content: center; /* Centra los enlaces */
   }
 
   .sidebar li {
-    margin: 10px 15px;
+    margin: 10px 15px; /* Espacio entre los elementos del menú */
   }
 
   .imagenes {
-    flex-direction: column; /* Imágenes una abajo de otra */
+    flex-direction: column; /* Las imágenes se apilan */
   }
 
   .imagenes img {
-    width: 100%; /* Ocupa todo el ancho */
-  }
-
-  .menu-toggle {
-    display: block; /* Muestra el botón en móviles/tablets */
-  }
-
-  .sidebar {
-    display: none; /* Oculta el menú al cargar */
-  }
-
-  .sidebar.active {
-    display: block; /* Muestra el menú cuando está activo */
+    width: 100%; /* Cada imagen ocupa todo el ancho */
   }
 }
 
-/* PARA CELULARES (pantallas menores a 600px) */
+/* RESPONSIVE PARA CELULARES */
 @media (max-width: 599px) {
   .contenedor {
-    width: 95%;
+    width: 95%; /* Ajusta el ancho en pantallas pequeñas */
   }
 
   .content {
-    padding: 20px;
+    padding: 20px; /* Reduce el espacio interno */
   }
 
   h1 {
-    font-size: 24px;
+    font-size: 24px; /* Título más pequeño */
   }
 
   h2 {
@@ -294,26 +163,11 @@ footer {
   }
 
   .logo {
-    width: 80px;
+    width: 80px; /* Logo más pequeño */
     margin: 0 auto 20px;
   }
 
   footer {
-    font-size: 12px;
-  }
-
-  th, td {
-    display: block; /* Hace que cada celda sea un bloque */
-    width: 100%; /* Ocupa todo el ancho */
-  }
-
-  tr {
-    margin-bottom: 20px;
-    display: block;
-    border-bottom: 2px solid #4d2ed6;
-  }
-
-  th {
-    background-color: #333;
+    font-size: 12px; /* Letra más pequeña en el pie de página */
   }
 }
