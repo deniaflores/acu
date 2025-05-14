@@ -1,37 +1,37 @@
-/* Reset y configuración general */
 * {
   margin: 0;
-  padding: 0;
+  padding: 0;                         /*quita imagenes y controla el tamaño total de los elementos*/
   box-sizing: border-box;
 }
 
 body {
-  font-family: Arial, sans-serif;  /* Fuente principal */
-  background-color: #f9f9f9;       /* Fondo general */
-  color: #333;                     /* Color del texto */
+  font-family: Arial, sans-serif;    /*define la letra,color de fondo, color de texto y espaacio interno*/
+  background-color: #f9f9f9;
+  color: #333;
 }
 
-/* Contenedor principal centrado */
 .contenedor {
   width: 80%;
-  max-width: 1000px;
+  max-width: 1000px;                  /*caja blanca, centrada, con bordes redondos y sombras suaves*/
   margin: 0 auto;
   overflow: hidden;
 }
 
-/* Contenedor general que coloca el menú a la izquierda y el contenido a la derecha */
 .container {
-  display: flex;            /* Activa el modelo flexbox */
-  min-height: 100vh;        /* Altura mínima del viewport */
-  flex-direction: row;      /* Mantiene el menú a la izquierda SIEMPRE */
+  display: flex;
+  min-height: 100vh;
 }
 
-/* Menú lateral izquierdo */
 .sidebar {
   width: 220px;
-  background-color: #1e1e2f;
+  background-color: #1e1e2f;        /*h1 */
   padding: 20px;
   color: white;
+  position: fixed;                   /* Fija en la izquierda */
+  top: 0;
+  left: 0;
+  height: 100vh;                     /* Ocupa todo el alto */
+  overflow-y: auto;                  /* Scroll si es necesario */
 }
 
 .sidebar h2 {
@@ -58,22 +58,20 @@ body {
   color: #f0a500;
 }
 
-/* Contenido de la página */
 .content {
   flex-grow: 1;
   padding: 30px;
   background-color: white;
   text-align: justify;
+  margin-left: 220px;                /* Espacio para sidebar fijo */
 }
 
-/* Logo */
 .logo {
   width: 100px;
   display: block;
   margin-bottom: 20px;
 }
 
-/* Estilo para imágenes */
 .imagenes {
   display: flex;
   gap: 20px;
@@ -86,7 +84,6 @@ body {
   border-radius: 8px;
 }
 
-/* Estilos para encabezados */
 h1 {
   font-size: 32px;
   margin-bottom: 10px;
@@ -104,7 +101,6 @@ h3 {
   color: #444;
 }
 
-/* Pie de página */
 footer {
   margin-top: 40px;
   font-size: 14px;
@@ -112,27 +108,9 @@ footer {
   text-align: center;
 }
 
-/* Diseño responsive para pantallas pequeñas: no cambiamos la dirección del menú */
+/* Tablets (pantallas menores a 992px) */
 @media (max-width: 991px) {
-  .container {
-    flex-direction: row; /* Mantener menú a la izquierda */
-    flex-wrap: wrap;     /* Permitir que los bloques se ajusten si no caben */
-  }
-
-  .sidebar {
-    width: 220px;
-    text-align: center;
-  }
-
-  .sidebar ul {
-    display: block;
-    padding: 0;
-  }
-
-  .sidebar li {
-    margin: 10px 0;
-  }
-
+  /* Ya no cambiamos sidebar a columna ni lo centramos */
   .imagenes {
     flex-direction: column;
   }
@@ -174,7 +152,6 @@ footer {
   }
 }
 
-/* Estilo para tablas */
 .tabla-11s {
   width: 100%;
   border-collapse: collapse;
@@ -189,19 +166,31 @@ footer {
 }
 
 .tabla-11s thead {
-  background-color: #6ab7eb;
+  background-color: #6ab7eb; /* Color del header de tu página */
   color: white;
 }
 
 .tabla-11s tbody tr:nth-child(even) {
-  background-color: #f0f2f5;
+  background-color: #f0f2f5; /* Fondo del body de tu página */
 }
 
 .tabla-11s tbody tr:hover {
   background-color: #e0e0d1;
 }
 
-/* Segunda tabla */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f1f1f1;
+  color: #333;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #444;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -222,7 +211,7 @@ tr:hover {
   background-color: #f0f0f0;
 }
 
-/* Tabla responsive */
+/* Responsive tablas móviles */
 @media (max-width: 600px) {
   th, td {
     display: block;
@@ -240,7 +229,6 @@ tr:hover {
   }
 }
 
-/* Formulario */
 .formulario-11s {
   background-color: #f0f2f5;
   padding: 20px;
@@ -280,7 +268,6 @@ tr:hover {
   background-color: #5c5e0c;
 }
 
-/* Chat estilo */
 .chat {
   max-width: 600px;
   margin: 20px auto;
