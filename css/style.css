@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Controla tamaño total de elementos */
+  box-sizing: border-box;
 }
 
 body {
@@ -22,26 +22,26 @@ body {
 }
 
 .container {
-  display: flex;             /* Flexbox para menú y contenido */
+  display: flex;
   width: 100%;
   max-width: 1400px;
   min-height: 100vh;
 }
 
 .sidebar {
-  width: 150px;              /* Menú más pequeño */
+  width: 100px;              /* Menú más delgado */
   background-color: #1e1e2f;
-  padding: 15px;
+  padding: 10px;
   color: white;
-  flex-shrink: 0;            /* Que no se encoja el menú */
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .sidebar h2 {
-  margin-bottom: 20px;
-  font-size: 20px;
+  margin-bottom: 15px;
+  font-size: 16px;
   text-align: center;
 }
 
@@ -51,14 +51,14 @@ body {
 }
 
 .sidebar li {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .sidebar a {
   text-decoration: none;
   color: white;
-  transition: 0.3s;
-  font-size: 14px;
+  transition: color 0.3s ease, transform 0.3s ease;
+  font-size: 12px;           /* Texto más pequeño */
   text-align: center;
   display: block;
 }
@@ -68,18 +68,17 @@ body {
 }
 
 .content {
-  flex-grow: 1;              /* Ocupa todo el espacio disponible */
+  flex-grow: 1;
   padding: 40px;
   background-color: white;
   text-align: justify;
-  font-size: 20px;           /* Más grande para legibilidad */
-  min-width: 0;              /* Evita scroll horizontal */
+  font-size: 20px;
+  min-width: 0;
   border-left: 1px solid #ddd;
 }
 
-/* Otros estilos */
 .logo {
-  width: 100px;
+  width: 80px;
   display: block;
   margin-bottom: 20px;
 }
@@ -125,12 +124,16 @@ footer {
 /* Media queries */
 @media (max-width: 991px) {
   .sidebar {
-    width: 120px;
-    padding: 10px;
+    width: 80px;
+    padding: 8px;
+  }
+
+  .sidebar h2 {
+    font-size: 14px;
   }
 
   .sidebar a {
-    font-size: 13px;
+    font-size: 11px;
   }
 
   .content {
@@ -161,16 +164,16 @@ footer {
 
 @media (max-width: 599px) {
   .sidebar {
-    width: 100px;
-    padding: 8px;
+    width: 70px;
+    padding: 6px;
   }
 
   .sidebar h2 {
-    font-size: 16px;
+    font-size: 13px;
   }
 
   .sidebar a {
-    font-size: 12px;
+    font-size: 10px;
   }
 
   .content {
@@ -191,7 +194,7 @@ footer {
   }
 
   .logo {
-    width: 80px;
+    width: 70px;
     margin: 0 auto 20px;
   }
 
