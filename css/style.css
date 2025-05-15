@@ -8,12 +8,13 @@ body {
   font-family: Arial, sans-serif;    /*define la letra,color de fondo, color de texto y espaacio interno*/
   background-color: #f9f9f9;
   color: #333;
-  padding: 20px;                     /* para que no pegue con los bordes */
+  padding: 20px;  /* Agregado para evitar que el contenido toque los bordes de la ventana */
 }
 
+/* Opcional: aumentar el ancho total de la caja principal */
 .contenedor {
-  width: 80%;
-  max-width: 1000px;                  /*caja blanca, centrada, con bordes redondos y sombras suaves*/
+  width: 90%; /* antes 80% */
+  max-width: 1200px; /* antes 1000px */
   margin: 0 auto;
   overflow: hidden;
 }
@@ -23,20 +24,15 @@ body {
   min-height: 100vh;
 }
 
-/* Menú lateral fijo siempre visible */
+/* --- Aquí empieza el cambio para que el menú esté fijo a la izquierda siempre --- */
 .sidebar {
-  position: fixed;       /* fijo en la pantalla */
-  top: 0;
-  left: 0;
-  width: 220px;          /* ancho fijo */
-  height: 100vh;         /* altura completa */
+  width: 220px; /* ancho fijo para el menú */
   background-color: #1e1e2f;
   padding: 20px;
   color: white;
-  overflow-y: auto;      /* scroll vertical si mucho contenido */
-  box-sizing: border-box;
-  z-index: 1000;         /* encima de todo */
+  flex-shrink: 0; /* evita que el menú se encoja */
 }
+
 
 .sidebar h2 {
   margin-bottom: 20px;
@@ -62,16 +58,14 @@ body {
   color: #f0a500;
 }
 
-/* Contenido siempre a la derecha del menú */
+/* El contenido se adapta a la derecha del menú fijo */
 .content {
-  margin-left: 220px;                  /* espacio para el sidebar fijo */
+  flex-grow: 1; /* ocupa todo el espacio restante */
   padding: 30px;
   background-color: white;
   text-align: justify;
-  min-height: 100vh;
-  width: calc(100% - 220px);          /* ancho total menos sidebar */
-  box-sizing: border-box;
-  overflow-wrap: break-word;
+  min-width: 0; /* para evitar overflow */
+  font-size: 18px; /* agranda un poco la letra para que se vea más */
 }
 
 .logo {
@@ -203,59 +197,51 @@ footer {
   border-left: 4px solid #6f700f;
 }
 
-/* Mantener menú fijo a la izquierda y contenido visible en pantallas pequeñas */
+/* --- Media queries ajustados para mantener menú fijo y contenido visible --- */
+
 @media (max-width: 991px) {
+  /* No cambiar el sidebar: siempre fijo a la izquierda */
   .sidebar {
-    width: 220px;
-    height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
+    width: 220px;
+    height: 100vh;
   }
-
   .content {
     margin-left: 220px;
     width: calc(100% - 220px);
-    overflow-x: auto;  /* permite scroll horizontal si se necesita */
+    overflow-x: auto; /* Scroll horizontal si hace falta */
   }
-
   .imagenes {
     flex-direction: column;
   }
-
   .imagenes img {
     width: 100%;
   }
 }
 
-/* Ajustes para móviles */
 @media (max-width: 599px) {
   .contenedor {
     width: 95%;
   }
-
   .content {
     padding: 20px;
     font-size: 12px;
   }
-
   h1 {
     font-size: 24px;
   }
-
   h2 {
     font-size: 18px;
   }
-
   h3 {
     font-size: 16px;
   }
-
   .logo {
     width: 80px;
     margin: 0 auto 20px;
   }
-
   footer {
     font-size: 12px;
   }
