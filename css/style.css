@@ -37,6 +37,7 @@ body {
 
 .sidebar ul {
   list-style: none;
+  padding: 0;
 }
 
 .sidebar li {
@@ -102,7 +103,7 @@ footer {
   text-align: center;
 }
 
-/* Tablets (pantallas menores a 992px) */
+/* Responsive para tablets */
 @media (max-width: 991px) {
   .container {
     flex-direction: column;
@@ -140,7 +141,7 @@ footer {
   }
 }
 
-/* Móviles (pantallas menores a 600px) */
+/* Responsive para móviles */
 @media (max-width: 599px) {
   .contenedor {
     width: 95%;
@@ -185,6 +186,7 @@ footer {
   }
 }
 
+/* Estilos para tablas responsivas */
 .tabla-11s {
   width: 100%;
   border-collapse: collapse;
@@ -212,46 +214,47 @@ footer {
   background-color: #e0e0d1;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th,
-td {
-  padding: 12px;
-  text-align: left;
-  border-bottom: 1px solid #ccc;
-}
-
-th {
-  background-color: #4d2ed6;
-  color: white;
-}
-
-tr:hover {
-  background-color: #f0f0f0;
-}
-
-/* Responsive para tablas */
 @media (max-width: 600px) {
-  th,
-  td {
+  .tabla-11s, 
+  .tabla-11s thead, 
+  .tabla-11s tbody, 
+  .tabla-11s th, 
+  .tabla-11s td, 
+  .tabla-11s tr {
     display: block;
     width: 100%;
   }
 
-  tr {
-    margin-bottom: 20px;
-    display: block;
-    border-bottom: 2px solid #4d2ed6;
+  .tabla-11s thead {
+    display: none;
   }
 
-  th {
-    background-color: #333;
+  .tabla-11s tr {
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background: white;
+    border-radius: 8px;
+  }
+
+  .tabla-11s td {
+    position: relative;
+    padding-left: 50%;
+    text-align: left;
+  }
+
+  .tabla-11s td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 15px;
+    width: 45%;
+    font-weight: bold;
+    color: #333;
+    white-space: nowrap;
   }
 }
 
+/* Formulario */
 .formulario-11s {
   background-color: #f0f2f5;
   padding: 20px;
@@ -291,6 +294,7 @@ tr:hover {
   background-color: #5c5e0c;
 }
 
+/* Chat */
 .chat {
   max-width: 600px;
   margin: 20px auto;
