@@ -1,11 +1,11 @@
 * {
   margin: 0;
-  padding: 0;                         
+  padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  font-family: Arial, sans-serif;    
+  font-family: Arial, sans-serif;
   background-color: #f9f9f9;
   color: #333;
   padding: 20px;
@@ -13,29 +13,29 @@ body {
 
 .contenedor {
   width: 80%;
-  max-width: 1000px;                  
+  max-width: 1000px;
   margin: 0 auto;
   overflow: hidden;
 }
 
-.container {                      
+.container {
   display: flex;
   min-height: 100vh;
 }
 
-/* --- MODIFICACIÓN PARA MENÚ FIJO A LA IZQUIERDA --- */
+/* Menú lateral fijo siempre visible */
 .sidebar {
-  position: fixed;       /* Fijo en pantalla */
+  position: fixed;       /* fijo en la pantalla */
   top: 0;
   left: 0;
-  width: 220px;          /* Ancho fijo */
-  height: 100vh;         /* Altura total */
-  background-color: #1e1e2f;        
+  width: 220px;          /* ancho fijo */
+  height: 100vh;         /* altura completa */
+  background-color: #1e1e2f;
   padding: 20px;
   color: white;
-  overflow-y: auto;      /* Scroll vertical si es necesario */
+  overflow-y: auto;      /* si hay mucho contenido, aparece scroll vertical */
   box-sizing: border-box;
-  z-index: 1000;
+  z-index: 1000;         /* para estar encima */
 }
 
 .sidebar h2 {
@@ -62,19 +62,18 @@ body {
   color: #f0a500;
 }
 
-/* --- MODIFICACIÓN CONTENIDO A LA DERECHA DEL MENÚ --- */
+/* Contenido a la derecha del menú, siempre visible */
 .content {
-  margin-left: 220px;            /* Deja espacio para el sidebar */
+  margin-left: 220px;                  /* deja espacio para el sidebar */
   padding: 30px;
   background-color: white;
   min-height: 100vh;
-  overflow-wrap: break-word;
-  width: calc(100% - 220px);    /* Ocupa el resto del ancho */
+  width: calc(100% - 220px);          /* ancho menos el sidebar */
   box-sizing: border-box;
-  font-size: 12px;               /* Tamaño pequeño para que todo quepa */
+  overflow-wrap: break-word;
+  font-size: 14px;
 }
 
-/* Logo */
 .logo {
   width: 100px;
   display: block;
@@ -117,7 +116,6 @@ footer {
   text-align: center;
 }
 
-/* Tablas */
 .tabla-11s {
   width: 100%;
   border-collapse: collapse;
@@ -144,7 +142,6 @@ footer {
   background-color: #e0e0d1;
 }
 
-/* Formulario */
 .formulario-11s {
   background-color: #f0f2f5;
   padding: 20px;
@@ -184,7 +181,6 @@ footer {
   background-color: #5c5e0c;
 }
 
-/* Chat */
 .chat {
   max-width: 600px;
   margin: 20px auto;
@@ -207,10 +203,8 @@ footer {
   border-left: 4px solid #6f700f;
 }
 
-/* Responsive para dispositivos más pequeños */
+/* En pantallas pequeñas, mantiene menú fijo y contenido con scroll horizontal */
 @media (max-width: 991px) {
-  /* Quitamos flex-direction: column para que no suba el menú */
-  
   .sidebar {
     width: 220px;
     height: 100vh;
@@ -222,6 +216,7 @@ footer {
   .content {
     margin-left: 220px;
     width: calc(100% - 220px);
+    overflow-x: auto;
   }
 
   .imagenes {
@@ -240,7 +235,7 @@ footer {
 
   .content {
     padding: 20px;
-    font-size: 10px; /* Más pequeño para que quepa */
+    font-size: 12px;
   }
 
   h1 {
