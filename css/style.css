@@ -1,15 +1,14 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Controla tamaño total de elementos */
+  box-sizing: border-box;
 }
 
 body {
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
   color: #333;
-  padding: 0;
-  margin: 0;
+  font-size: 14px;
 }
 
 .contenedor {
@@ -22,26 +21,26 @@ body {
 }
 
 .container {
-  display: flex;             /* Flexbox para menú y contenido */
+  display: flex;
   width: 100%;
-  max-width: 1400px;
+  max-width: 1200px;
   min-height: 100vh;
 }
 
 .sidebar {
-  width: 150px;              /* Menú más pequeño */
+  width: 80px;
   background-color: #1e1e2f;
-  padding: 15px;
+  padding: 10px 5px;
   color: white;
-  flex-shrink: 0;            /* Que no se encoja el menú */
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .sidebar h2 {
-  margin-bottom: 20px;
-  font-size: 20px;
+  margin-bottom: 10px;
+  font-size: 14px;
   text-align: center;
 }
 
@@ -51,14 +50,14 @@ body {
 }
 
 .sidebar li {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .sidebar a {
   text-decoration: none;
   color: white;
   transition: 0.3s;
-  font-size: 14px;
+  font-size: 12px;
   text-align: center;
   display: block;
 }
@@ -68,76 +67,75 @@ body {
 }
 
 .content {
-  flex-grow: 1;              /* Ocupa todo el espacio disponible */
-  padding: 40px;
+  flex-grow: 1;
+  padding: 20px;
   background-color: white;
   text-align: justify;
-  font-size: 20px;           /* Más grande para legibilidad */
-  min-width: 0;              /* Evita scroll horizontal */
+  font-size: 14px;
+  min-width: 0;
   border-left: 1px solid #ddd;
 }
 
-/* Otros estilos */
 .logo {
-  width: 100px;
+  width: 60px;
   display: block;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .imagenes {
   display: flex;
-  gap: 20px;
-  margin: 20px 0;
+  gap: 10px;
+  margin: 15px 0;
   flex-wrap: wrap;
 }
 
 .imagenes img {
   width: 48%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 6px;
 }
 
 h1 {
-  font-size: 36px;
-  margin-bottom: 10px;
+  font-size: 20px;
+  margin-bottom: 8px;
 }
 
 h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
+  font-size: 16px;
+  margin-bottom: 15px;
   color: #555;
 }
 
 h3 {
-  margin-top: 30px;
-  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 8px;
   color: #444;
-  font-size: 20px;
+  font-size: 14px;
 }
 
 footer {
-  margin-top: 40px;
-  font-size: 14px;
+  margin-top: 30px;
+  font-size: 12px;
   color: #4d2ed6;
   text-align: center;
 }
 
-/* Estilos para tablas */
 .tabla-responsiva {
   width: 100%;
   overflow-x: auto;
-  margin: 20px 0;
+  margin: 15px 0;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 600px;
+  min-width: 400px;
+  font-size: 12px;
 }
 
 th, td {
   border: 1px solid #ccc;
-  padding: 12px;
+  padding: 8px;
   text-align: left;
 }
 
@@ -146,19 +144,24 @@ tr:nth-child(even) {
 }
 
 /* Media queries */
-@media (max-width: 991px) {
+@media (max-width: 768px) {
   .sidebar {
-    width: 120px;
-    padding: 10px;
+    width: 60px;
+    padding: 5px 3px;
+  }
+
+  .sidebar h2 {
+    font-size: 12px;
+    margin-bottom: 5px;
   }
 
   .sidebar a {
-    font-size: 13px;
+    font-size: 10px;
   }
 
   .content {
-    padding: 25px;
-    font-size: 18px;
+    padding: 10px;
+    font-size: 12px;
   }
 
   .imagenes {
@@ -170,71 +173,30 @@ tr:nth-child(even) {
   }
 
   h1 {
-    font-size: 28px;
+    font-size: 16px;
   }
 
   h2 {
-    font-size: 20px;
-  }
-
-  h3 {
-    font-size: 18px;
-  }
-
-  table {
-    font-size: 16px;
-  }
-
-  th, td {
-    padding: 10px;
-  }
-}
-
-@media (max-width: 599px) {
-  .sidebar {
-    width: 100px;
-    padding: 8px;
-  }
-
-  .sidebar h2 {
-    font-size: 16px;
-  }
-
-  .sidebar a {
-    font-size: 12px;
-  }
-
-  .content {
-    padding: 15px;
-    font-size: 16px;
-  }
-
-  h1 {
-    font-size: 24px;
-  }
-
-  h2 {
-    font-size: 18px;
-  }
-
-  h3 {
-    font-size: 16px;
-  }
-
-  .logo {
-    width: 80px;
-    margin: 0 auto 20px;
-  }
-
-  footer {
-    font-size: 12px;
-  }
-
-  table {
     font-size: 14px;
   }
 
+  h3 {
+    font-size: 12px;
+  }
+
+  .logo {
+    width: 50px;
+  }
+
+  footer {
+    font-size: 10px;
+  }
+
+  table {
+    font-size: 11px;
+  }
+
   th, td {
-    padding: 8px;
+    padding: 6px;
   }
 }
