@@ -23,7 +23,7 @@ body {
 }
 
 .sidebar {
-  width: 220px;
+  width: 150px; /* Ajustado para que el menú sea más pequeño */
   background-color: #1e1e2f;
   padding: 20px;
   color: white;
@@ -48,6 +48,7 @@ body {
   text-decoration: none;
   color: white;
   transition: 0.3s;
+  font-size: 14px; /* Opcional: ajusta el tamaño del texto en el menú */
 }
 
 .sidebar a:hover {
