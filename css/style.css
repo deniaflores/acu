@@ -17,21 +17,22 @@ body {
   overflow: hidden;
 }
 
-.container {
+.container {                         /* agrupar y centrar contenido dentro de una pagina web*/
   display: flex;
   min-height: 100vh;
 }
 
+/* Sidebar fijo siempre visible a la izquierda */
 .sidebar {
+  position: fixed;                   /* fija el menú en la izquierda */
+  top: 0;
+  left: 0;
   width: 220px;
+  height: 100vh;                    /* altura completa */
   background-color: #1e1e2f;        /*h1 */
   padding: 20px;
   color: white;
-  position: fixed;                   /* Fija en la izquierda */
-  top: 0;
-  left: 0;
-  height: 100vh;                     /* Ocupa todo el alto */
-  overflow-y: auto;                  /* Scroll si es necesario */
+  overflow-y: auto;                 /* si el menú tiene mucho contenido permite scroll vertical */
 }
 
 .sidebar h2 {
@@ -42,6 +43,7 @@ body {
 
 .sidebar ul {
   list-style: none;
+  padding: 0;
 }
 
 .sidebar li {
@@ -58,12 +60,14 @@ body {
   color: #f0a500;
 }
 
+/* Contenido se adapta al ancho restante del viewport */
 .content {
-  flex-grow: 1;
   padding: 30px;
   background-color: white;
   text-align: justify;
-  margin-left: 220px;                /* Espacio para sidebar fijo */
+  margin-left: 220px;              /* espacio para el sidebar fijo */
+  width: calc(100% - 220px);       /* ancho restante */
+  overflow-wrap: break-word;       /* para que el texto largo no salga del contenedor */
 }
 
 .logo {
@@ -110,13 +114,39 @@ footer {
 
 /* Tablets (pantallas menores a 992px) */
 @media (max-width: 991px) {
-  /* Ya no cambiamos sidebar a columna ni lo centramos */
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: fixed;        /* mantén fijo para tablets también */
+    width: 220px;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    text-align: center;
+  }
+
+  .sidebar ul {
+    display: block;         /* lista vertical */
+    padding: 0;
+  }
+
+  .sidebar li {
+    margin: 10px 0;
+  }
+
   .imagenes {
     flex-direction: column;
   }
 
   .imagenes img {
     width: 100%;
+  }
+
+  .content {
+    margin-left: 220px;      /* mismo margen para el sidebar fijo */
+    width: calc(100% - 220px);
   }
 }
 
@@ -128,6 +158,8 @@ footer {
 
   .content {
     padding: 20px;
+    margin-left: 220px;        /* mantén margen para sidebar */
+    width: calc(100% - 220px);
   }
 
   h1 {
@@ -151,6 +183,8 @@ footer {
     font-size: 12px;
   }
 }
+
+/* Tablas y formularios */
 
 .tabla-11s {
   width: 100%;
@@ -176,57 +210,6 @@ footer {
 
 .tabla-11s tbody tr:hover {
   background-color: #e0e0d1;
-}
-
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f1f1f1;
-  color: #333;
-  padding: 20px;
-}
-
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #444;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th, td {
-  padding: 12px;
-  text-align: left;
-  border-bottom: 1px solid #ccc;
-}
-
-th {
-  background-color: #4d2ed6;
-  color: white;
-}
-
-tr:hover {
-  background-color: #f0f0f0;
-}
-
-/* Responsive tablas móviles */
-@media (max-width: 600px) {
-  th, td {
-    display: block;
-    width: 100%;
-  }
-
-  tr {
-    margin-bottom: 20px;
-    display: block;
-    border-bottom: 2px solid #4d2ed6;
-  }
-
-  th {
-    background-color: #333;
-  }
 }
 
 .formulario-11s {
