@@ -122,6 +122,29 @@ footer {
   text-align: center;
 }
 
+/* Estilos para tablas */
+.tabla-responsiva {
+  width: 100%;
+  overflow-x: auto;
+  margin: 20px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 12px;
+  text-align: left;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
 /* Media queries */
 @media (max-width: 991px) {
   .sidebar {
@@ -156,6 +179,14 @@ footer {
 
   h3 {
     font-size: 18px;
+  }
+
+  table {
+    font-size: 16px;
+  }
+
+  th, td {
+    padding: 10px;
   }
 }
 
@@ -197,5 +228,13 @@ footer {
 
   footer {
     font-size: 12px;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  th, td {
+    padding: 8px;
   }
 }
