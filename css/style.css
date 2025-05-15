@@ -1,37 +1,38 @@
 * {
   margin: 0;
-  padding: 0;                         /*quita imágenes y controla el tamaño total de los elementos*/
-  box-sizing: border-box;
+  padding: 0;
+  box-sizing: border-box; /* Controla tamaño total de elementos */
 }
 
 body {
-  font-family: Arial, sans-serif;    /*define la letra, color de fondo, color de texto y espacio interno*/
+  font-family: Arial, sans-serif;
   background-color: #f9f9f9;
   color: #333;
   padding: 20px;
 }
 
 .contenedor {
-  width: 90%;                       /*Más ancho para que todo se vea más grande*/
-  max-width: 1200px;                /*Máximo ancho aumentado*/
+  width: 90%;
+  max-width: 1200px; /* Más ancho para mejor visualización */
   margin: 0 auto;
-  overflow: hidden;
   background: white;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  overflow: hidden;
 }
 
-.container {                        /*Contenedor principal flex*/
-  display: flex;
+.container {
+  display: flex;       /* Flexbox para menú y contenido */
   min-height: 100vh;
+  flex-wrap: nowrap;   /* No dejar que el menú suba arriba */
 }
 
 .sidebar {
-  width: 220px;                    /*ancho fijo para el menú*/
+  width: 140px;         /* Menú más pequeño */
   background-color: #1e1e2f;
-  padding: 20px;
+  padding: 15px;
   color: white;
-  flex-shrink: 0;                  /*evita que el menú se encoja*/
+  flex-shrink: 0;       /* Que no se encoja el menú */
 }
 
 .sidebar h2 {
@@ -59,15 +60,16 @@ body {
 }
 
 .content {
-  flex-grow: 1;                   /*ocupa el resto del espacio*/
+  flex-grow: 1;          /* Ocupa todo el espacio disponible */
   padding: 30px;
   background-color: white;
   text-align: justify;
-  min-width: 0;                  /*para evitar problemas de overflow*/
-  font-size: 18px;               /*letra más grande para destacar contenido*/
+  min-width: 0;          /* Evita scroll horizontal */
+  font-size: 18px;       /* Texto claro y legible */
 }
 
-/* Imágenes y otros estilos iguales */
+/* Otros estilos tuyos (imágenes, encabezados, footer...) */
+
 .logo {
   width: 100px;
   display: block;
@@ -110,25 +112,21 @@ footer {
   text-align: center;
 }
 
-/* Tablets (pantallas menores a 992px) */
+/* Media queries: para pantallas pequeñas, sin mover menú arriba */
+
 @media (max-width: 991px) {
   .container {
-    flex-direction: row;  /* mantiene el menú a la izquierda, no arriba */
+    flex-wrap: nowrap; /* No cambiar layout */
   }
 
   .sidebar {
-    width: 180px;           /* ancho un poco más pequeño en tablets */
-    text-align: center;
-    flex-shrink: 0;
+    width: 120px;     /* Menú un poco más pequeño en tablets */
+    padding: 10px;
   }
 
-  .sidebar ul {
-    display: block;
-    padding: 0;
-  }
-
-  .sidebar li {
-    margin: 10px 0;
+  .content {
+    padding: 20px;
+    font-size: 16px;
   }
 
   .imagenes {
@@ -140,15 +138,20 @@ footer {
   }
 }
 
-/* Móviles (pantallas menores a 600px) */
 @media (max-width: 599px) {
   .contenedor {
     width: 95%;
   }
 
+  .sidebar {
+    width: 100px;      /* Menú más pequeño en móviles */
+    padding: 8px;
+    font-size: 14px;
+  }
+
   .content {
-    padding: 20px;
-    font-size: 16px;
+    padding: 15px;
+    font-size: 14px;
   }
 
   h1 {
@@ -171,92 +174,4 @@ footer {
   footer {
     font-size: 12px;
   }
-}
-
-/* Tablas y formularios igual que antes (no modifiqué nada) */
-.tabla-11s {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-  font-family: Arial, sans-serif;
-}
-
-.tabla-11s th, .tabla-11s td {
-  border: 1px solid #ccc;
-  padding: 12px;
-  text-align: left;
-}
-
-.tabla-11s thead {
-  background-color: #6ab7eb;
-  color: white;
-}
-
-.tabla-11s tbody tr:nth-child(even) {
-  background-color: #f0f2f5;
-}
-
-.tabla-11s tbody tr:hover {
-  background-color: #e0e0d1;
-}
-
-.formulario-11s {
-  background-color: #f0f2f5;
-  padding: 20px;
-  max-width: 500px;
-  margin: 20px auto;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.formulario-11s label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: bold;
-}
-
-.formulario-11s input,
-.formulario-11s textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-family: Arial, sans-serif;
-}
-
-.formulario-11s button {
-  background-color: #6f700f;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.formulario-11s button:hover {
-  background-color: #5c5e0c;
-}
-
-.chat {
-  max-width: 600px;
-  margin: 20px auto;
-  font-family: Arial, sans-serif;
-}
-
-.usuario, .respuesta {
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 8px;
-}
-
-.usuario {
-  background-color: #e0e0d1;
-  text-align: left;
-}
-
-.respuesta {
-  background-color: #f0f2f5;
-  border-left: 4px solid #6f700f;
 }
