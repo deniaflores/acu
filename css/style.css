@@ -1,38 +1,38 @@
 * {
   margin: 0;
-  padding: 0;                         /*quita imagenes y controla el tamaño total de los elementos*/
+  padding: 0;                         /*quita imágenes y controla el tamaño total de los elementos*/
   box-sizing: border-box;
 }
 
 body {
-  font-family: Arial, sans-serif;    /*define la letra,color de fondo, color de texto y espaacio interno*/
+  font-family: Arial, sans-serif;    /*define la letra, color de fondo, color de texto y espacio interno*/
   background-color: #f9f9f9;
   color: #333;
-  padding: 20px;  /* Agregado para evitar que el contenido toque los bordes de la ventana */
+  padding: 20px;
 }
 
-/* Opcional: aumentar el ancho total de la caja principal */
 .contenedor {
-  width: 90%; /* antes 80% */
-  max-width: 1200px; /* antes 1000px */
+  width: 90%;                       /*Más ancho para que todo se vea más grande*/
+  max-width: 1200px;                /*Máximo ancho aumentado*/
   margin: 0 auto;
   overflow: hidden;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.container {                         /* agrupar y centrar contenido dentro de una pagina web*/
+.container {                        /*Contenedor principal flex*/
   display: flex;
   min-height: 100vh;
 }
 
-/* --- Aquí empieza el cambio para que el menú esté fijo a la izquierda siempre --- */
 .sidebar {
-  width: 220px; /* ancho fijo para el menú */
+  width: 220px;                    /*ancho fijo para el menú*/
   background-color: #1e1e2f;
   padding: 20px;
   color: white;
-  flex-shrink: 0; /* evita que el menú se encoja */
+  flex-shrink: 0;                  /*evita que el menú se encoja*/
 }
-
 
 .sidebar h2 {
   margin-bottom: 20px;
@@ -58,16 +58,16 @@ body {
   color: #f0a500;
 }
 
-/* El contenido se adapta a la derecha del menú fijo */
 .content {
-  flex-grow: 1; /* ocupa todo el espacio restante */
+  flex-grow: 1;                   /*ocupa el resto del espacio*/
   padding: 30px;
   background-color: white;
   text-align: justify;
-  min-width: 0; /* para evitar overflow */
-  font-size: 18px; /* agranda un poco la letra para que se vea más */
+  min-width: 0;                  /*para evitar problemas de overflow*/
+  font-size: 18px;               /*letra más grande para destacar contenido*/
 }
 
+/* Imágenes y otros estilos iguales */
 .logo {
   width: 100px;
   display: block;
@@ -110,6 +110,70 @@ footer {
   text-align: center;
 }
 
+/* Tablets (pantallas menores a 992px) */
+@media (max-width: 991px) {
+  .container {
+    flex-direction: row;  /* mantiene el menú a la izquierda, no arriba */
+  }
+
+  .sidebar {
+    width: 180px;           /* ancho un poco más pequeño en tablets */
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .sidebar ul {
+    display: block;
+    padding: 0;
+  }
+
+  .sidebar li {
+    margin: 10px 0;
+  }
+
+  .imagenes {
+    flex-direction: column;
+  }
+
+  .imagenes img {
+    width: 100%;
+  }
+}
+
+/* Móviles (pantallas menores a 600px) */
+@media (max-width: 599px) {
+  .contenedor {
+    width: 95%;
+  }
+
+  .content {
+    padding: 20px;
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  .logo {
+    width: 80px;
+    margin: 0 auto 20px;
+  }
+
+  footer {
+    font-size: 12px;
+  }
+}
+
+/* Tablas y formularios igual que antes (no modifiqué nada) */
 .tabla-11s {
   width: 100%;
   border-collapse: collapse;
@@ -124,12 +188,12 @@ footer {
 }
 
 .tabla-11s thead {
-  background-color: #6ab7eb; /* Color del header de tu página */
+  background-color: #6ab7eb;
   color: white;
 }
 
 .tabla-11s tbody tr:nth-child(even) {
-  background-color: #f0f2f5; /* Fondo del body de tu página */
+  background-color: #f0f2f5;
 }
 
 .tabla-11s tbody tr:hover {
@@ -195,54 +259,4 @@ footer {
 .respuesta {
   background-color: #f0f2f5;
   border-left: 4px solid #6f700f;
-}
-
-/* --- Media queries ajustados para mantener menú fijo y contenido visible --- */
-
-@media (max-width: 991px) {
-  /* No cambiar el sidebar: siempre fijo a la izquierda */
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 220px;
-    height: 100vh;
-  }
-  .content {
-    margin-left: 220px;
-    width: calc(100% - 220px);
-    overflow-x: auto; /* Scroll horizontal si hace falta */
-  }
-  .imagenes {
-    flex-direction: column;
-  }
-  .imagenes img {
-    width: 100%;
-  }
-}
-
-@media (max-width: 599px) {
-  .contenedor {
-    width: 95%;
-  }
-  .content {
-    padding: 20px;
-    font-size: 12px;
-  }
-  h1 {
-    font-size: 24px;
-  }
-  h2 {
-    font-size: 18px;
-  }
-  h3 {
-    font-size: 16px;
-  }
-  .logo {
-    width: 80px;
-    margin: 0 auto 20px;
-  }
-  footer {
-    font-size: 12px;
-  }
 }
